@@ -43,23 +43,27 @@
     .card a:hover {
       text-decoration: underline;
     }
-.button {
-  background-color: #007bff;
-  color: #000; /* Black text */
-  font-weight: bold;
-  font-size: 16px;
-  text-shadow: none; /* Remove blue shadow for clarity */
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.button:hover {
-  background-color: #0056b3;
-  color: #fff; /* Optional: white text on hover for contrast */
-}
 
+    .card .button {
+    /* This overrides the general .card a { color: #007bff; } style */
+    color: #000; /* Example: White text for contrast */
+}
+    .button {
+      color: #000; /* Black text */
+      background-color: #007bff;
+      font-weight: bold;
+      font-size: 16px;
+      text-shadow: none;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .button:hover {
+      background-color: #0056b3;
+      color: #fff; /* Keep text black on hover */
+    }
   </style>
 </head>
 <body>
