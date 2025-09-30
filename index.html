@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joseph D. Kemper - Digital Business Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 300px;
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .card h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .card p {
+      color: #555;
+      margin: 5px 0;
+    }
+    .card a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    <h1>Joseph D. Kemper</h1>
+    <p>Email: <a href="mailto:JosephKemper@gmail.com">JosephKemper@gmail.com</a></p>
+    <p>Phone: <a href="tel:8014-874-0215">8014-874-0215</a></p>
+    <p>X: <a href="https://x.com/JosephDKemper" target="_blank">x.com/JosephDKemper</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/josephkemper/" target="_blank">linkedin.com/in/josephkemper</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/JosephKemper" target="_blank">facebook.com/JosephKemper</a></p>
+    <p>GitHub: <a href="https://github.com/JosephKemper" target="_blank">github.com/JosephKemper</a></p>
+    <a href="javascript:void(0)" class="button" onclick="downloadVCard()">Save to Contacts</a>
+  </div>
+
+  <script>
+    function downloadVCard() {
+      const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Joseph D. Kemper
+EMAIL;TYPE=WORK:JosephKemper@gmail.com
+TEL;TYPE=CELL:8014-874-0215
+URL:https://github.com/JosephKemper
+URL:https://www.linkedin.com/in/josephkemper/
+URL:https://x.com/JosephDKemper
+URL:https://www.facebook.com/JosephKemper
+END:VCARD
+      `.trim();
+
+      const blob = new Blob([vCardData], { type: 'text/vcard' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'joseph_kemper.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
